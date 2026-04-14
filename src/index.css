@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@layer base {
+  body {
+    font-family: 'Poppins', sans-serif;
+    @apply bg-white dark:bg-[#1d2430] text-[#788293];
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto max-w-[1320px] px-4;
+  }
+  
+  .sticky .header-logo {
+.sticky .header-logo {
+  @apply py-2 lg:py-1; 
+}}
+}
+
+.dark body {
+  background-color: #1d2430;
+  color: #959cb1;
+}
