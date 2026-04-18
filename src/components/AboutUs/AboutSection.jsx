@@ -31,8 +31,9 @@ const Counter = ({ value }) => {
 
 const AboutSection = () => {
   const stats = [
-    { label: "Active Students", value: 10, suffix: "M+" }, // عدلنا القيمة لـ 10 مع M+
-    { label: "Premium Courses", value: 60, suffix: "K+" }, // خليناها 60K لشكل أشيك
+    // هعدل للديزاين اللي عملتله سيف
+    { label: "Active Students", value: 10, suffix: "M+" },
+    { label: "Premium Courses", value: 60, suffix: "K+" }, 
     { label: "Expert Instructors", value: 150, suffix: "+" },
     { label: "Satisfaction Rate", value: 100, suffix: "%" },
   ];
