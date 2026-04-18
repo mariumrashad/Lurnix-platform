@@ -2,21 +2,21 @@ const menuData = [
   {
     id: 1,
     title: "Home",
-    path: "/",
+    path: "/#home",
     newTab: false,
   },
   {
     id: 2,
     title: "About us",
-    path: "/about",
+    path: "/#about",
     newTab: false,
   },
   {
     id: 33,
     title: "Courses",
-    path: "/courses",
+    path: "/#courses",
     newTab: false,
   },
-];
+  ];
 
 export default menuData;

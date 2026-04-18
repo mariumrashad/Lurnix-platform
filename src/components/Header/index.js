@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { NavHashLink as Link } from "react-router-hash-link";
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
 
@@ -31,6 +32,7 @@ const Header = () => {
       setOpenIndex(index);
     }
   };
+
   const location = useLocation();
   const usePathName = location.pathname;
 
@@ -39,15 +41,17 @@ const Header = () => {
       <header
         className={`header top-0 left-0 z-40 flex w-full items-center ${
           sticky
-            ? "dark:bg-gray-dark dark:shadow-sticky-dark shadow-sticky fixed z-9999 bg-white/80 backdrop-blur-xs transition"
+            ? "dark:bg-gray-dark dark:shadow-sticky-dark shadow-sticky fixed z-9999 bg-white/80 backdrop-blur-md transition"
             : "absolute bg-transparent"
         }`}
       >
         <div className="container mx-auto px-4">
           <div className="relative -mx-4 flex items-center justify-between">
+            
             <div className="w-60 max-w-full px-4 flex-shrink-0">
               <Link
-                to="/"
+                smooth
+                to="/#home"
                 className={`header-logo block w-full ${sticky ? "py-5 lg:py-2" : "py-8"}`}
               >
                 <img
@@ -77,8 +81,9 @@ const Header = () => {
                     <li key={index} className="group relative">
                       {menuItem.path ? (
                         <Link
+                          smooth
                           to={menuItem.path}
-                          className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${
+                          className={`flex py-2 text-base font-medium lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${
                             usePathName === menuItem.path
                               ? "text-primary dark:text-white"
                               : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
@@ -90,18 +95,18 @@ const Header = () => {
                         <>
                           <p
                             onClick={() => handleSubmenu(index)}
-                            className="text-dark group-hover:text-primary flex cursor-pointer items-center justify-between py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 dark:text-white/70 dark:group-hover:text-white"
+                            className="text-dark group-hover:text-primary flex cursor-pointer items-center justify-between py-2 text-base font-medium lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 dark:text-white/70 dark:group-hover:text-white"
                           >
                             {menuItem.title}
-                            <span className="pl-3">
-                              <svg width="25" height="24" viewBox="0 0 25 24">
-                                <path fillRule="evenodd" clipRule="evenodd" d="M6.29289 8.8427C6.68342 8.45217 7.31658 8.45217 7.70711 8.8427L12 13.1356L16.2929 8.8427C16.6834 8.45217 17.3166 8.45217 17.7071 8.8427C18.0976 9.23322 18.0976 9.86639 17.7071 10.2569L12 15.964L6.29289 10.2569C5.90237 9.86639 5.90237 9.23322 6.29289 8.8427Z" fill="currentColor" />
+                            <span className="pl-2">
+                              <svg width="20" height="20" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6"/>
                               </svg>
                             </span>
                           </p>
                           <div className={`submenu dark:bg-dark relative top-full left-0 rounded-sm bg-white transition-[top] duration-300 group-hover:opacity-100 lg:invisible lg:absolute lg:top-[110%] lg:block lg:w-[250px] lg:p-4 lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full ${openIndex === index ? "block" : "hidden"}`}>
                             {menuItem.submenu.map((submenuItem, subIndex) => (
-                              <Link to={submenuItem.path} key={subIndex} className="text-dark hover:text-primary block rounded-sm py-2.5 text-sm lg:px-3 dark:text-white/70 dark:hover:text-white">
+                              <Link smooth to={submenuItem.path} key={subIndex} className="text-dark hover:text-primary block rounded-sm py-2.5 text-sm lg:px-3 dark:text-white/70 dark:hover:text-white">
                                 {submenuItem.title}
                               </Link>
                             ))}
@@ -114,38 +119,55 @@ const Header = () => {
               </nav>
             </div>
 
-            <div className="flex items-center justify-end pr-16 lg:pr-0 flex-shrink-0">
-              <Link
-                to="/signin"
-                className="group relative hidden px-7 py-3 text-base font-medium text-dark md:block dark:text-white overflow-hidden rounded-sm"
-              >
-                <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
-                  Sign In
-                </span>
-                <div className="absolute inset-0 bg-primary transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+            <div className="flex items-center justify-end flex-shrink-0 space-x-2 md:space-x-4 pr-16 lg:pr-0">
+              
+              <button className="flex h-10 w-10 items-center justify-center rounded-full text-dark hover:bg-gray-100 dark:text-white dark:hover:bg-white/10 transition-all">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </button>
+
+              <Link smooth to="/wishlist" className="relative flex h-10 w-10 items-center justify-center rounded-full text-dark hover:bg-gray-100 dark:text-white dark:hover:bg-white/10 transition-all">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.84-8.84 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span className="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white">0</span>
               </Link>
 
-              <Link
-                to="/signup"
-                className="group relative ml-4 hidden px-8 py-3 text-base font-medium text-primary border border-primary rounded-sm md:block overflow-hidden transition-all duration-300 hover:text-white md:px-9 lg:px-6 xl:px-9"
-              >
-                <span className="relative z-10">Sign Up</span>
-                <div className="absolute inset-0 bg-primary transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-              </Link>
+              <span className="hidden h-6 w-[1px] bg-gray-200 dark:bg-white/10 md:block"></span>
 
-              <div className="pl-4">
+              <div className="hidden items-center lg:flex space-x-3">
+                <Link
+                  to="/login"
+                  className="group relative overflow-hidden rounded-md px-6 py-3 text-base font-medium text-dark dark:text-white transition-all"
+                >
+                  <span className="relative z-10 transition-colors duration-300 group-hover:text-white">Log In</span>
+                  <div className="absolute inset-0 z-0 bg-primary translate-y-full transition-transform duration-300 group-hover:translate-y-0"></div>
+                </Link>
+
+                <Link
+                  to="/signup"
+                  className="group relative overflow-hidden rounded-md border border-primary px-7 py-3 text-base font-medium text-primary transition-all duration-300 hover:text-white"
+                >
+                  <span className="relative z-10">Sign Up</span>
+                  <div className="absolute inset-0 z-0 bg-primary translate-y-full transition-transform duration-300 group-hover:translate-y-0"></div>
+                </Link>
+              </div>
+
+              <div className="pl-1">
                 <ThemeToggler />
               </div>
               
               <button
                 onClick={navbarToggleHandler}
-                id="navbarToggler"
                 className="ring-primary absolute top-1/2 right-4 block translate-y-[-50%] rounded-lg px-3 py-[6px] focus:ring-2 lg:hidden"
               >
                 <span className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? "top-[7px] rotate-45" : ""}`} />
                 <span className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? "opacity-0" : ""}`} />
                 <span className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? "top-[-8px] -rotate-45" : ""}`} />
               </button>
+
             </div>
           </div>
         </div>
