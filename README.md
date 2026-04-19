@@ -29,7 +29,7 @@ src/
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/your-username/lurnix.git](https://github.com/your-username/lurnix.git)
+   git clone [https://github.com/mariumrashad/lurnix-platform.git](https://github.com/mariumrashad/lurnix-platform.git)
    cd lurnix
    ```
 
@@ -49,9 +49,5 @@ src/
    npm start
    ```
 
-## 📝 Roadmap
-- [ ] User Authentication & Profiles.
-- [ ] Shopping Cart & Wishlist persistence.
-- [ ] Payment gateway integration (Stripe/PayPal).
-- [ ] Real-time instructor dashboard.
+
 
