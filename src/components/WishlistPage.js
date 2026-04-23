@@ -98,13 +98,24 @@ const WishlistPage = () => {
                     </div>
                     
                     <div className="flex items-center gap-3">
-                      <Link to={`/course/${course.id}`} className="px-6 py-3 rounded-xl font-bold text-sm border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all shadow-sm">
-                        View Details
-                      </Link>
-                      <button className="px-8 py-3 bg-primary text-white rounded-xl font-bold text-sm shadow-lg shadow-primary/30 hover:scale-105 transition-all">
-                        Enroll Now
-                      </button>
-                    </div>
+  <Link to={`/course/${course.id}`} className="px-6 py-3 rounded-xl font-bold text-sm border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all shadow-sm">
+    View Details
+  </Link>
+  
+  {/* هعمل هنا زرار يوديني للوج ان  */}
+  {!isLoggedIn ? (
+    <Link 
+      to="/login" 
+      className="px-8 py-3 bg-red-500 text-white rounded-xl font-bold text-sm shadow-lg shadow-red-500/30 hover:scale-105 transition-all text-center"
+    >
+      Login to Buy
+    </Link>
+  ) : (
+    <button className="px-8 py-3 bg-primary text-white rounded-xl font-bold text-sm shadow-lg shadow-primary/30 hover:scale-105 transition-all">
+      Enroll Now
+    </button>
+  )}
+</div>
                   </div>
                 </div>
               </div>
