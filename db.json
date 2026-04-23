@@ -9,7 +9,9 @@
       "students": "75k",
       "duration": "40h",
       "nextLesson": "Lesson 2.3: Interview Basics",
-      "image": "/images/hero/shape-01.svg"
+      "image": "/images/hero/shape-01.svg",
+            "price": "$49.99"
+
     },
     {
       "id": "2",
@@ -20,7 +22,8 @@
       "students": "12.7k",
       "duration": "25h",
       "nextLesson": "Lesson 1.5: Props & State",
-      "image": "/images/hero/shape-02.svg"
+      "image": "/images/hero/shape-02.svg",
+            "price": "$59.99"
     },
     {
       "id": "3",
@@ -31,7 +34,8 @@
       "students": "8k",
       "duration": "15h",
       "nextLesson": "Lesson 4.1: SEO Strategies",
-      "image": "/images/hero/shape-01.svg"
+      "image": "/images/hero/shape-01.svg",
+      "price": "$49.99"
     },
     {
       "id": "4",
@@ -42,7 +46,7 @@
       "students": "5.2k",
       "duration": "30h",
       "nextLesson": "Lesson 5.2: Streams & Buffers",
-      "image": "/images/hero/shape-02.svg"
+      "image": "/images/hero/shape-02.svg",     "price": "$69.99"
     },
     {
       "id": "5",
@@ -53,7 +57,7 @@
       "students": "10k",
       "duration": "12h",
       "nextLesson": "Lesson 1.2: Color Wheel",
-      "image": "/images/hero/shape-01.svg"
+      "image": "/images/hero/shape-01.svg" ,  "price": "$39.99"                            
     },
     {
       "id": "6",
@@ -64,7 +68,7 @@
       "students": "6.8k",
       "duration": "20h",
       "nextLesson": "Lesson 3.0: Pixel Tracking",
-      "image": "/images/hero/shape-02.svg"
+      "image": "/images/hero/shape-02.svg" ,  "price": "$44.99"
     }
   ]
 }
